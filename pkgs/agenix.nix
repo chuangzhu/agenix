@@ -3,18 +3,14 @@
   writeShellScriptBin,
   runtimeShell,
   callPackage,
-  rage,
+  age,
   gnused,
   nix,
   mktemp,
   diffutils,
 } :
 let
-  # we need at least rage 0.5.0 to support ssh keys
-  rageToUse = if rage.version < "0.5.0"
-         then callPackage ./rage.nix {}
-         else rage;
-  ageBin = "${rageToUse}/bin/rage";
+  ageBin = "${age}/bin/age";
   sedBin = "${gnused}/bin/sed";
   nixInstantiate = "${nix}/bin/nix-instantiate";
   mktempBin = "${mktemp}/bin/mktemp";

@@ -5,12 +5,7 @@ with lib;
 let
   cfg = config.age;
 
-  # we need at least rage 0.5.0 to support ssh keys
-  rage =
-    if lib.versionOlder pkgs.rage.version "0.5.0"
-    then pkgs.callPackage ../pkgs/rage.nix { }
-    else pkgs.rage;
-  ageBin = "${rage}/bin/rage";
+  ageBin = "${pkgs.age}/bin/age";
 
   users = config.users.users;
 
